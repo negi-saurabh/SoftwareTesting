@@ -2,7 +2,7 @@ import random
 
 class Word:
 	
-	words = ["apple","orange","school","apartment"]
+	words = ["Apple","Orange","School","Apartment"]
 	def __init__(self):
 		self.selectedWord = self.chooseWord()
 	

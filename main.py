@@ -26,16 +26,28 @@ def main():
 		
 		if((len(guess)==1)):#check if guess entered is one character
 			if(((ord(guess) >= 65 and ord(guess) <=90) or (ord(guess)>=97 and ord(guess) <=122))):#allow only english alphabets
-				if(guess.casefold() in w.selectedWord.casefold()):#check if the guess is part of the word the user need to guess
+				if(guess.casefold() in w.selectedWord.casefold() and guess.casefold() not in user.guesses):#check if the guess is part of the word the user need to guess
 				
 					user.correctGuesses+=1 #increment correct guesses
 					user.guesses.append(guess.casefold())#add the guess to the list
 					showGuessPosition(user.guesses,w.selectedWord)#show the position of the guessed letter
 				else:
-					print("Wrong letter!\n")
+					#if statement to check if the guess is repeated or if it is not part of the word
+					if(guess.casefold() in w.selectedWord.casefold() and guess.casefold() in user.guesses):
+						print("You have already correctly guessed the letter '"+guess+"' and it is part of the word\n") #if letter is correctly repeated lives is not deducted
+						
+					elif(guess.casefold() not in w.selectedWord.casefold() and guess.casefold() in user.guesses):
+						print("YOU HAVE ALREADY GUESSED THE LETTER '"+guess+"' AND IT IS NOT PART OF THE WORD")#if letter is repeated and it is not part of the word, then life is deducted
+						user.life-=1#decrement the lives of the user
+						h.drawHangman(user.life)#call method to add a drawing to the hangman
+						
+					else:
+						print("Wrong letter!\n")#if the letter is guessed for the first time and it is not part of the word
+						user.life-=1#decrement the lives of the user
+						h.drawHangman(user.life)#call method to add a drawing to the hangman
+					
 					user.guesses.append(guess)
-					user.life-=1#decrement the lives of the user
-					h.drawHangman(user.life)#call method to add a drawing to the hangman
+					
 			else:
 				print("Please enter an English letter")
 		else:

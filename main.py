@@ -20,7 +20,7 @@ def main():
 	
 	
 	#Loop to keep going until user wins or he runs our of lives
-	while(user.life > 0 and user.correctGuesses != len(set(w.selectedWord))):
+	while(user.life > 0 and user.correctGuesses != len(set(w.selectedWord.casefold()))):
 	
 		guess = input("Enter your guess, you have "+str(user.life)+" chances left:\n")
 		

@@ -68,7 +68,7 @@ def main():
 		for i in user.guesses:
 			print(i+", ",end='')
 		
-		again = input("\nEnter q to exit or enter anything else to play another game\n").casefold()
+		again = input("\nEnter q or Q to exit or enter anything else to play another game\n").casefold()
 			
 #method that will display the guessed letter if it is in the word
 def showGuessPosition(guesses,word):

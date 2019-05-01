@@ -14,17 +14,13 @@ def main():
 
 		print("\n")
 
-		user = User(input("Please enter your name to play the game [Name can contain only Alphabets]\n"))
+		user = User(input("Please enter your name to play the game [NOT ONLY JUST NUMBERS or SPACES]\n"))
 		for a in user.name:
 			if (a.isalpha()) == True:
 				count += 1
 		if(user.name.isalpha() != True and count == 0):
-			print("Enter a valid name\n")
+			print("Enter a valid name")
 			continue
-
-
-
-
 
 		print("Welcome to hangman game!\n")  # Welcome message
 		print(w.selectedWord)

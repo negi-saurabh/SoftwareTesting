@@ -23,7 +23,6 @@ def main():
 			continue
 
 		print("Welcome to hangman game!\n")  # Welcome message
-		print(w.selectedWord)
 		print("Hello "+ user.name+", the word you need to guess has "+str(len(w.selectedWord))+" letters: ",end='')#message to tell the user the number of letter of the word he have to guess
 		showGuessPosition(user.guesses,w.selectedWord)
 		h.drawHangman(user.life)

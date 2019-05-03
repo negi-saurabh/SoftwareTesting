@@ -41,20 +41,30 @@ def main():
 						#if statement to check if the guess is repeated or if it is not part of the word
 						if(guess.casefold() in w.selectedWord.casefold() and guess.casefold() in user.guesses):
 							print("You have already correctly guessed the letter '"+guess+"' and it is part of the word\n") #if letter is correctly repeated lives is not deducted
+							print("\nThe word you need to guess: ")
+							showGuessPosition(user.guesses,w.selectedWord)
 
 						elif(guess.casefold() not in w.selectedWord.casefold() and guess.casefold() in user.guesses):
-							print("YOU HAVE ALREADY GUESSED THE LETTER '"+guess+"' AND IT IS NOT PART OF THE WORD")#if letter is repeated and it is not part of the word, then life is deducted
+							print("YOU HAVE ALREADY GUESSED THE LETTER '"+guess+"' AND IT IS NOT PART OF THE WORD\n")#if letter is repeated and it is not part of the word, then life is deducted
 							user.life-=1#decrement the lives of the user
 							h.drawHangman(user.life)#call method to add a drawing to the hangman
+							print("\nThe word you need to guess: ")
+							showGuessPosition(user.guesses,w.selectedWord)
 						else:
 							print("Wrong letter!\n")#if the letter is guessed for the first time and it is not part of the word
 							user.life-=1#decrement the lives of the user
 							h.drawHangman(user.life)#call method to add a drawing to the hangman
+							print("\nThe word you need to guess: ")
+							showGuessPosition(user.guesses,w.selectedWord)
 						user.guesses.append(guess)
 				else:
-					print("Please enter an English letter")
+					print("Please enter an English letter\n")
+					print("\nThe word you need to guess: ")
+					showGuessPosition(user.guesses,w.selectedWord)
 			else:
-				print("Please enter a single English letter")
+				print("Please enter a single English letter\n")
+				print("\nThe word you need to guess: ")
+				showGuessPosition(user.guesses,w.selectedWord)
 
 		if(user.life == 0):#message if the user loses
 			print("\nYou've been hanged! The correct word was: "+w.selectedWord+"\n")
@@ -62,12 +72,12 @@ def main():
 		else:#if they win
 			print("\nYou Win !\n")
 
-		print("You have made "+str(len(user.guesses))+" guesses in this game which are:")
+		print("You have made "+str(len(user.guesses))+" guesses in this game which are:\n")
 
 		#print all user guesses
 		for i in user.guesses:
 			print(i+", ",end='')
-		again = input("\nEnter q or Q to exit or enter anything else to play another game\n").casefold()
+		again = input("\n\nEnter q or Q to exit or enter anything else to play another game\n").casefold()
 
 #method that will display the guessed letter if it is in the word
 def showGuessPosition(guesses,word):
@@ -76,5 +86,5 @@ def showGuessPosition(guesses,word):
 			print(i,end='')
 		else:
 			print("-",end='')
-	print()
+	print("\n")
 main()

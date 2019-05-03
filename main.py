@@ -13,6 +13,8 @@ def main():
 		count = 0
 
 		print("\n")
+		
+		print("Welcome to the Hangman game!\n")
 
 		user = User(input("Please enter your name to play the game [NOT ONLY JUST NUMBERS or SPACES]\n"))
 		for a in user.name:

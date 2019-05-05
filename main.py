@@ -6,25 +6,25 @@ from Hangman import Hangman
 def main():
 
 	again= "a"# variable to check if the user wants to play another game
-	
+	print("\n")
+	print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Welcome to HANGMAN - The Game of words ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n")
+	print("===============================                Rulebook                ===============================\n"
+		  "::::::   A player name can not have have just numbers, spaces or Alphanumerics ::::::\n"
+		  "::::::   A Player can guess only one alphabet at a time                        ::::::\n"
+		  "::::::   Each wrong guess will result in a penalty                             ::::::\n"
+		  "::::::   Guessing a right alphabet AGAIN wont be penalized                     ::::::\n")
 	while(again != "q"):
 		w = Word()
 		h = Hangman()
 		count = 0
 
-		print("\n")
-		print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Welcome to HANGMAN - The Game of words ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n")
-		print("===============================                Rulebook                ===============================\n"
-			  "::::::   A player name can not have have just numbers, spaces or Alphanumerics ::::::\n"
-			  "::::::   A Player can guess only one alphabet at a time                        ::::::\n"
-			  "::::::   Each wrong guess will result in a penalty                             ::::::\n"
-			  "::::::   Guessing a right alphabet AGAIN wont be penalized                     ::::::\n")
-		user = User(input("Now, Please enter your player name to play the game\n"))
+
+		user = User(input("Please enter your player name to play the game\n"))
 		for a in user.name:
 			if (a.isalpha()) == True:
 				count += 1
 		if(user.name.isalpha() != True and count == 0):
-			print("Enter a valid name")
+			print("Please, Enter a valid name\n")
 			continue
 
 		print("Welcome to hangman game!\n")  # Welcome message

@@ -26,6 +26,9 @@ def main():
 		if(user.name.isalpha() != True and count == 0):
 			print("Please, Enter a valid name\n")
 			continue
+		elif(len(user.name) > 15):
+			print("Please enter a name with less than 16 characters\n")
+			continue
 
 		print("Welcome to hangman game!\n")  # Welcome message
 		print("Hello "+ user.name+", the word you need to guess has "+str(len(w.selectedWord))+" letters: ",end='')#message to tell the user the number of letter of the word he have to guess
